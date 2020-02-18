@@ -1,32 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+      <m-header></m-header>
+      <tab></tab>
+      <keep-alive><router-view></router-view></keep-alive>
+      <player></player>
+
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script type="text/ecmascript-6">
+    import Tab from "./components/tab/Tab";
+    import MHeader from './components/m-header/m-header'
+    import Player from "./components/player/Player";
+    export default {
+        components:{
+            Player,
+            MHeader,Tab
+        }
+    }
+</script>
 
-#nav {
-  padding: 30px;
-}
+<style lang="stylus" scoped rel="stylesheet/stylus">
+  @import "~common/stylus/variable"
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  #app
+    color:$color-theme
 </style>
